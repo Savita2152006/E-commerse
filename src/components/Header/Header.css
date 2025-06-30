@@ -1,0 +1,119 @@
+.Header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  max-height: 70px;
+  display: grid;
+  grid-template-areas: "logo nav";
+  background-color: #0f1216;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0 1rem;
+  z-index: 1000;
+}
+
+.Logo {
+  grid-area: logo;
+  height: 68px;
+  width: 90px;
+  border-radius: 20%; /* 🎯 Makes it a circle */
+  object-fit: cover;  /* Ensures it fills the circle properly */
+  margin-left: 10px;  /* Optional: space from left side */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Optional: soft shadow */
+  transition: transform 0.3s ease; /* Optional: adds a hover effect */
+}
+
+.Logo:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+
+.Nav {
+  display: grid;
+  grid-area: nav;
+  grid-template-columns: repeat(4, auto);
+  align-items: center;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.Nav a {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.4s;
+}
+
+.Nav a:hover {
+  transform: scale(1.1);
+}
+
+.Nav button {
+  padding: 8px 16px;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgba(255, 0, 0, 0.6);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 5px rgba(255, 0, 0, 0.3);
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.Nav button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px rgba(255, 0, 0, 0.2);
+}
+
+.Burger {
+  display: none;
+  font-size: 30px;
+  border: none;
+  background: none;
+  grid-area: burger;
+  justify-self: end;
+  cursor: pointer;
+}
+
+.Burger:active {
+  transform: scale(1.2);
+}
+
+@media (max-width: 700px) {
+  .Header {
+    grid-template-areas:
+      "logo burger"
+      "nav nav";
+    padding: 10px;
+  }
+
+  .Nav {
+    grid-template-columns: none;
+    grid-template-rows: repeat(4, auto);
+    background: rgba(40, 44, 47, 0.95);
+    padding: 20px 0;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .Burger {
+    display: inline;
+  }
+}
+
+.NavAnimation-enter {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.NavAnimation-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 350ms;
+}
+.NavAnimation-exit {
+  opacity: 1;
+}
+.NavAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 350ms;
+}

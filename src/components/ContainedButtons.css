@@ -1,0 +1,19 @@
+/* Center the button stack nicely */
+.button-container {
+  position: relative; /* or fixed if needed */
+  top: 300px;         /* how far from top */
+  left: 50%;
+  right:50%;
+  z-index: 100;
+  font-weight: bold;
+  border-radius: 30px;
+  padding: 10px 200px;
+  
+}
+
+/* Optional if you want the buttons to look cooler */
+.MuiButton-contained {
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 10px 20px;
+}
